@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#123b32">
+  <title>Respuesta Inteligente</title>
+  <link rel="stylesheet" href="css/principal.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand"><span class="mark">RI</span><div><strong>Respuesta Inteligente</strong><small id="subtitulo">Tu asistente de mensajes</small></div></div>
+    <span id="estado" class="status off">Pausado</span>
+  </header>
+  <main>
+    <section class="welcome">
+      <p class="eyebrow">PANEL PRINCIPAL</p>
+      <h1 id="tituloBienvenida">Tu atención, a tu manera.</h1>
+      <p id="descripcionBienvenida">Personaliza el asistente para tu actividad y tus clientes.</p>
+      <button id="togglePausa" class="primary">Activar respuestas</button>
+    </section>
+    <section class="section">
+      <h2>Configura tu asistente</h2>
+      <div class="tiles">
+        <button class="tile" data-panel="perfil"><span>🧩</span><b>Mi perfil</b><small>Tu nombre y actividad</small></button>
+        <button class="tile" data-panel="conversacion"><span>🧠</span><b>Probar conversación</b><small>Ensaya cómo entiende al cliente</small></button>
+        <button class="tile" data-panel="aprendizaje"><span>📚</span><b>Biblioteca de aprendizaje</b><small>Ejemplos solo de clientes</small></button>
+        <button class="tile" data-panel="respuestas"><span>💬</span><b>Respuestas</b><small>Crea y edita tus mensajes</small></button>
+        <button class="tile" data-panel="horarios"><span>🕒</span><b>Horarios</b><small>Cuándo responder</small></button>
+        <button class="tile" data-panel="contactos"><span>👥</span><b>Contactos</b><small>Quién puede recibir respuesta</small></button>
+        <button class="tile" data-panel="historial"><span>📋</span><b>Historial</b><small>Actividad reciente</small></button>
+      </div>
+    </section>
+    <section id="panel" class="panel" aria-live="polite">
+      <h2>Bienvenido</h2>
+      <p>Primero configura tu perfil. Puedes adaptar esta aplicación a un negocio, servicio o actividad personal. Tus ajustes se guardan en este dispositivo.</p>
+      <button class="save" data-open-profile>Configurar mi perfil</button>
+    </section>
+    <p class="notice">Cada instalación guarda su propia configuración. La conexión con WhatsApp requiere integración Android; esta pantalla todavía no envía mensajes.</p>
+  </main>
+  <script src="funciones/almacenamiento.js"></script>
+  <script src="funciones/pausa.js"></script>
+  <script src="funciones/respuestas.js"></script>
+  <script src="funciones/aprendizaje.js"></script>
+  <script src="funciones/conversacion.js"></script>
+  <script src="funciones/horarios.js"></script>
+  <script src="funciones/contactos.js"></script>
+  <script src="funciones/historial.js"></script>
+  <script src="js/app.js"></script>
+  <script src="funciones/android-bridge.js"></script>
+</body>
+</html>
