@@ -9,20 +9,21 @@
 </head>
 <body>
   <header class="top">
-    <div class="brand"><span class="mark">RI</span><div><strong>Respuesta Inteligente</strong><small>Tu asistente de WhatsApp Business</small></div></div>
+    <div class="brand"><span class="mark">RI</span><div><strong>Respuesta Inteligente</strong><small id="subtitulo">Tu asistente de mensajes</small></div></div>
     <span id="estado" class="status off">Pausado</span>
   </header>
   <main>
     <section class="welcome">
       <p class="eyebrow">PANEL PRINCIPAL</p>
-      <h1>Todo bajo control.</h1>
-      <p>Configura tus respuestas sin complicaciones.</p>
+      <h1 id="tituloBienvenida">Tu atención, a tu manera.</h1>
+      <p id="descripcionBienvenida">Personaliza el asistente para tu actividad y tus clientes.</p>
       <button id="togglePausa" class="primary">Activar respuestas</button>
     </section>
     <section class="section">
-      <h2>Mis funciones</h2>
+      <h2>Configura tu asistente</h2>
       <div class="tiles">
-        <button class="tile" data-panel="respuestas"><span>💬</span><b>Respuestas</b><small>Mensajes y palabras clave</small></button>
+        <button class="tile" data-panel="perfil"><span>🧩</span><b>Mi perfil</b><small>Tu nombre y actividad</small></button>
+        <button class="tile" data-panel="respuestas"><span>💬</span><b>Respuestas</b><small>Crea y edita tus mensajes</small></button>
         <button class="tile" data-panel="horarios"><span>🕒</span><b>Horarios</b><small>Cuándo responder</small></button>
         <button class="tile" data-panel="contactos"><span>👥</span><b>Contactos</b><small>Quién puede recibir respuesta</small></button>
         <button class="tile" data-panel="historial"><span>📋</span><b>Historial</b><small>Actividad reciente</small></button>
@@ -30,9 +31,10 @@
     </section>
     <section id="panel" class="panel" aria-live="polite">
       <h2>Bienvenido</h2>
-      <p>Elige una función para comenzar. Tus ajustes se guardarán en este teléfono.</p>
+      <p>Primero configura tu perfil. Puedes adaptar esta aplicación a un negocio, servicio o actividad personal. Tus ajustes se guardan en este dispositivo.</p>
+      <button class="save" data-open-profile>Configurar mi perfil</button>
     </section>
-    <p class="notice">La conexión con WhatsApp requiere permisos de Android. Esta pantalla todavía no envía mensajes.</p>
+    <p class="notice">Cada instalación guarda su propia configuración. La conexión con WhatsApp requiere integración Android; esta pantalla todavía no envía mensajes.</p>
   </main>
   <script src="funciones/almacenamiento.js"></script>
   <script src="funciones/pausa.js"></script>
