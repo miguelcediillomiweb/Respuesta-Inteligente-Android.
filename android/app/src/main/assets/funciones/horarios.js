@@ -1,0 +1,1 @@
+window.RIHorarios={obtener(){return RIStore.leer().horario},guardar(h){const c=RIStore.leer();c.horario=h;RIStore.guardar(c)}};
