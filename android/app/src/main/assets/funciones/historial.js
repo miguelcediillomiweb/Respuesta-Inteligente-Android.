@@ -1,0 +1,1 @@
+window.RIHistorial={listar(){return JSON.parse(localStorage.getItem("ri_historial_v1")||"[]")},registrar(texto){const a=this.listar();a.unshift({texto,fecha:new Date().toLocaleString()});localStorage.setItem("ri_historial_v1",JSON.stringify(a.slice(0,100)))}};
