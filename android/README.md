@@ -8,7 +8,7 @@ Este directorio inicia la integración nativa que la interfaz web no puede reali
 - El servicio entrega el remitente y el texto mediante un broadcast explícito dirigido a esta aplicación.
 
 ## Límites de esta etapa
-- Todavía no hay proyecto Gradle completo, Activity anfitriona ni APK.
+- Ya existe una base Gradle Kotlin con módulo app y una Activity inicial para abrir los ajustes de acceso a notificaciones. Aún no incluye Gradle Wrapper, no se ha compilado y no hay APK.
 - El broadcast aún no está conectado con el motor web de conversación.
 - No se envían respuestas y no se utiliza AccessibilityService.
 - El contenido de la notificación solo se mantiene en memoria durante la entrega del evento; esta etapa no lo guarda en historial ni en la biblioteca de aprendizaje.
