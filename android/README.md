@@ -1,29 +1,25 @@
-# Integración Android nativa — etapa 1
+# Integración Android — prototipo conectado
 
-Este directorio inicia la integración nativa que la interfaz web no puede realizar por sí sola.
+## Ya incluido
+- Proyecto Gradle Kotlin con módulo Android.
+- Activity que carga la interfaz local desde `app/src/main/assets/index.html`.
+- Copia de los módulos web, estilos y motor local dentro de los assets Android.
+- Servicio NotificationListenerService limitado a WhatsApp Business (`com.whatsapp.w4b`).
+- Puente de eventos: la Activity recibe el broadcast y pasa remitente y texto al puente JavaScript.
+- El motor local prepara una respuesta sugerida por conversación y mantiene el contexto mientras la Activity siga viva.
+- Familiares y bloqueados coincidentes por nombre visible se descartan; jefes reciben un acuse sugerido una vez al día; clientes y números desconocidos generan una propuesta local.
+- Las propuestas se muestran para revisión y copia manual. No se envían.
 
-## Incluido
-- Manifiesto con el servicio NotificationListenerService.
-- NotificationCaptureService.kt, limitado a notificaciones del paquete oficial de WhatsApp Business: com.whatsapp.w4b.
-- El servicio entrega el remitente y el texto mediante un broadcast explícito dirigido a esta aplicación.
+## Límites y seguridad
+- La Activity debe estar abierta y viva para procesar el evento con el motor web. No se garantiza procesamiento si la app está cerrada o Android termina su proceso.
+- WhatsApp no siempre expone el teléfono en la notificación. La clasificación actual compara el nombre visible con el nombre registrado; si no coincide, el remitente queda como número nuevo. Por eso la exclusión por nombre no es una garantía de identidad.
+- Esta versión no utiliza RemoteInput y no manda respuestas automáticas.
+- No se guardan automáticamente mensajes recibidos ni se incorporan al aprendizaje.
+- El motor es local y basado en reglas, no una IA generativa.
+- No se ha compilado ni probado en un dispositivo real; todavía no hay APK.
 
-## Límites de esta etapa
-- Ya existe una base Gradle Kotlin con módulo app y una Activity inicial para abrir los ajustes de acceso a notificaciones. Aún no incluye Gradle Wrapper, no se ha compilado y no hay APK.
-- El broadcast aún no está conectado con el motor web de conversación.
-- No se envían respuestas y no se utiliza AccessibilityService.
-- El contenido de la notificación solo se mantiene en memoria durante la entrega del evento; esta etapa no lo guarda en historial ni en la biblioteca de aprendizaje.
-- El listener no puede garantizar que WhatsApp muestre siempre el texto completo o una acción de respuesta. Depende de la configuración de notificaciones y del formato que publique WhatsApp Business.
-
-## Seguridad obligatoria antes de automatizar
-1. Resolver el contacto y su grupo antes de procesar el texto.
-2. Familiares y bloqueados: descartar el evento sin responder ni aprender.
-3. Jefes: permitir únicamente el acuse configurado y detener la automatización.
-4. Clientes: pasar el mensaje al motor local.
-5. Números desconocidos: tratar como posibles clientes, pero no guardar ejemplos automáticamente.
-6. Aprendizaje: solo ejemplos anonimizados y confirmados por el usuario; aprobación manual antes de incorporarlos.
-
-## Siguiente trabajo técnico
-- Crear el proyecto Gradle y la Activity anfitriona.
-- Conectar este evento con la configuración local de contactos y el motor de conversación.
-- Implementar respuesta con RemoteInput solo cuando la notificación incluya una acción compatible.
-- Compilar, instalar y probar en un teléfono real antes de afirmar que responde automáticamente.
+## Siguiente etapa
+1. Probar recepción en un teléfono real y verificar formatos de notificación de WhatsApp Business.
+2. Resolver identidad de contacto de forma fiable antes de habilitar cualquier envío.
+3. Añadir una capa de respuesta con RemoteInput, solo cuando WhatsApp publique una acción compatible.
+4. Añadir pruebas y generar el APK instalable.
