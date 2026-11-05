@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#123b32">
+  <title>Respuesta Inteligente</title>
+  <link rel="stylesheet" href="css/principal.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand"><span class="mark">RI</span><div><strong>Respuesta Inteligente</strong><small>Tu asistente de WhatsApp Business</small></div></div>
+    <span id="estado" class="status off">Pausado</span>
+  </header>
+  <main>
+    <section class="welcome">
+      <p class="eyebrow">PANEL PRINCIPAL</p>
+      <h1>Todo bajo control.</h1>
+      <p>Configura tus respuestas sin complicaciones.</p>
+      <button id="togglePausa" class="primary">Activar respuestas</button>
+    </section>
+    <section class="section">
+      <h2>Mis funciones</h2>
+      <div class="tiles">
+        <button class="tile" data-panel="respuestas"><span>💬</span><b>Respuestas</b><small>Mensajes y palabras clave</small></button>
+        <button class="tile" data-panel="horarios"><span>🕒</span><b>Horarios</b><small>Cuándo responder</small></button>
+        <button class="tile" data-panel="contactos"><span>👥</span><b>Contactos</b><small>Quién puede recibir respuesta</small></button>
+        <button class="tile" data-panel="historial"><span>📋</span><b>Historial</b><small>Actividad reciente</small></button>
+      </div>
+    </section>
+    <section id="panel" class="panel" aria-live="polite">
+      <h2>Bienvenido</h2>
+      <p>Elige una función para comenzar. Tus ajustes se guardarán en este teléfono.</p>
+    </section>
+    <p class="notice">La conexión con WhatsApp requiere permisos de Android. Esta pantalla todavía no envía mensajes.</p>
+  </main>
+  <script src="funciones/almacenamiento.js"></script>
+  <script src="funciones/pausa.js"></script>
+  <script src="funciones/respuestas.js"></script>
+  <script src="funciones/horarios.js"></script>
+  <script src="funciones/contactos.js"></script>
+  <script src="funciones/historial.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
