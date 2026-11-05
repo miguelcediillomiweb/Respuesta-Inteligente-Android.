@@ -45,7 +45,7 @@ Posibles temas internos para clasificar, nunca mostrados como menú:
 No afirmar que se generó un pedido, visita, factura, devolución o solución si no fue confirmado por el vendedor.
 
 ## Intervención humana
-El vendedor puede tomar la conversación en cualquier momento. Al detectar una respuesta manual del vendedor, el sistema debe pausar las respuestas automáticas para ese chat durante un periodo configurable o hasta que el vendedor reactive la atención. No competir con mensajes humanos.
+La interfaz tendrá una acción clara para "Tomar conversación" y otra para reanudar la automatización de ese chat. Al tomarla, se pausa la respuesta automática para ese contacto. No prometer detección infalible de cada respuesta escrita manualmente dentro de WhatsApp: esa posibilidad depende de lo que Android exponga y de la compatibilidad de WhatsApp. Si no puede detectarse de forma fiable, el control manual dentro de la app será el mecanismo seguro.
 
 ## IA y privacidad
 Primera versión: flujo guiado por reglas y preguntas predefinidas, sin API ni cargos, con reconocimiento limitado por palabras y contexto guardado localmente.
