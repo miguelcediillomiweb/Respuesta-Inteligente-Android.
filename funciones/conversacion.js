@@ -18,7 +18,7 @@ const reglas=[
 const empatia=["Lamento el inconveniente. Con gusto le ayudamos a revisar qué ocurrió. 😊","Gracias por avisarnos; entendemos la molestia y queremos apoyarle. 🤝","Qué pena que esté pasando esto. Vamos a reunir los datos para darle seguimiento. 🙏"];
 const elegir=(a,n)=>a[Math.abs(n||0)%a.length];
 function detectar(t){return reglas.find(r=>r.patrones.some(p=>p.test(t)))||null}
-function fechaHora(){const d=new Date();return {fecha:new Intl.DateTimeFormat("es-MX",{weekday:"long",day:"numeric",month:"long",year:"numeric"}).format(d),hora:new Intl.DateTimeFormat("es-MX",{hour:"numeric",minute:"2-digit",hour12:true}).format(d).replace(/\\.$/,"")}}
+function fechaHora(){const d=new Date();return {fecha:new Intl.DateTimeFormat("es-MX",{weekday:"long",day:"numeric",month:"long",year:"numeric"}).format(d),hora:new Intl.DateTimeFormat("es-MX",{hour:"numeric",minute:"2-digit",hour12:true}).format(d).replace(/\.$/,"")}}
 function prefijo(ctx){if(ctx.presentacionHecha)return "";const p=window.RIStore?RIStore.leer().perfil:{};const nombre=p.asistente||"asistente digital de tu preventa de zona Miguel";const fh=fechaHora();ctx.presentacionHecha=true;return "¡Qué tal! 👋 Soy el "+nombre+". Gracias por ponerte en contacto. 😊 Hoy es "+fh.fecha+" y son las "+fh.hora+". ¡Qué bueno que decidiste escribirnos! Cuéntame, ¿en qué podemos ayudarte? 📲\n\n"}
 function responder(texto,ctx){
  const t=String(texto||"").trim(),c=ctx||{tema:"",etapa:0,datos:{},turno:0,presentacionHecha:false};c.datos=c.datos||{};const n=c.turno||0;
