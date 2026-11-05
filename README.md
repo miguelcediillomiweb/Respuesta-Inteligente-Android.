@@ -1,22 +1,19 @@
 # Respuesta Inteligente
 
-Aplicación personal para organizar respuestas automáticas a mensajes entrantes de WhatsApp Business.
+Aplicacion configurable para organizar la atencion de mensajes entrantes de WhatsApp Business.
 
-## Principios
-- Interfaz sencilla, con botones y configuraciones por selección.
-- Proyecto modular: cada función vive en su propio archivo.
-- Procesamiento local siempre que sea posible.
-- Sin campañas, envíos masivos, precios ni mensajes salientes no solicitados.
-- No manipular la interfaz de WhatsApp mediante accesibilidad.
-- La integración Android solo responderá cuando exista una acción de respuesta compatible y válida en la notificación.
+## Personalizacion
+- Cada instalacion guarda su perfil y ajustes localmente en su propio dispositivo.
+- Se pueden cambiar nombre, negocio, actividad, tono y saludo inicial.
+- Las respuestas se pueden crear, editar y eliminar desde la pantalla, sin tocar codigo.
+- Los contactos y horarios se configuran por separado en cada dispositivo.
+
+## Estado real
+La interfaz web permite configurar perfil, respuestas, horarios y contactos. Todavia no existe integracion Android con WhatsApp: no lee notificaciones ni envia respuestas automaticas. Tampoco se ha generado un APK instalable.
 
 ## Estructura
 - `index.html`: pantalla principal.
-- `css/`: estilos visuales.
-- `js/`: inicio, configuración y almacenamiento.
-- `funciones/`: módulos independientes.
-- `android/`: integración nativa futura.
-- `.github/workflows/`: compilación futura del APK.
-
-## Estado
-Base inicial. La interfaz web sirve para configurar y probar la experiencia; la automatización real de notificaciones requiere integración Android nativa y permisos del sistema.
+- `css/`: estilos.
+- `js/`: inicio de la aplicacion.
+- `funciones/`: modulos independientes.
+- `android/`: integracion nativa futura.
