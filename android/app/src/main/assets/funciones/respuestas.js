@@ -1,0 +1,1 @@
+window.RIRespuestas={listar(){return RIStore.leer().respuestas||[]},guardar(lista){const c=RIStore.leer();c.respuestas=lista;RIStore.guardar(c)}};
