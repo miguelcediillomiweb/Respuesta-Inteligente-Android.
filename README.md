@@ -15,5 +15,5 @@ La interfaz web permite configurar perfil, respuestas, horarios y contactos. Tod
 - `index.html`: pantalla principal.
 - `css/`: estilos.
 - `js/`: inicio de la aplicacion.
-- `funciones/`: modulos independientes.
+- `funciones/`: modulos independientes, incluido `conversacion.js` para detectar situaciones y proponer respuestas contextuales.
 - `android/`: integracion nativa futura.
