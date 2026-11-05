@@ -27,7 +27,7 @@ function responder(texto,ctx){
  let r=detectar(t);
  if(r&&(!c.tema||c.tema==="saludo"||c.tema==="otro"||r.tema!==c.tema||c.etapa>=3)){c.tema=r.tema;c.etapa=0;c.datos={};}
  if(!c.tema)c.tema="otro";
- const tema=c.tema,e=c.etapa||0;let out="",humano=false;
+ const tema=c.tema,e=c.etapa||0;let out="",humano=false;const aprendido=window.RIAprendizaje&&window.RIAprendizaje.buscarRespuesta?window.RIAprendizaje.buscarRespuesta(tema,t):null;if(aprendido){c.turno=n+1;return {texto:prefijo(c)+aprendido.respuesta,contexto:c,tema,requiereHumano:true,origen:"biblioteca_aprobada"}}
  if(tema==="pedido"){
   if(e===0){c.datos.pedido=t;out="¡Claro que sí! 😊 Gracias por compartirnos su pedido. Le confirmo que su pedido ha sido agendado para nuestra entrega de mañana. 🚚 El equipo de reparto estará visitando su negocio en el transcurso del día, ya que no contamos con un horario exacto. Le pedimos estar pendiente de su entrega. 🙌\n\nSi necesita conocer el costo total, Miguel verificará los precios y cantidades antes de confirmárselos. 🧾";c.etapa=1;humano=true;}
   else{c.datos.detalle=t;out="¡Muchas gracias! 🙌 La forma de pago es efectivo contra entrega. 💵\n\nLa entrega habitual se realiza al día siguiente y el equipo de reparto visita los negocios durante el transcurso del día, sin horario exacto. La programación debe quedar confirmada por Miguel. 🚚";c.etapa=2;humano=true;}
