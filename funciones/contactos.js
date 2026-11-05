@@ -1,0 +1,1 @@
+window.RIContactos={listar(){return RIStore.leer().exclusiones||[]},guardar(lista){const c=RIStore.leer();c.exclusiones=lista;RIStore.guardar(c)}};
