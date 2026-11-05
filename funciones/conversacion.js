@@ -1,8 +1,8 @@
 (function(){
 const reglas=[
-{tema:"pedido",nombre:"Nuevo pedido",patrones:[/\bpedido\b/i,/me puede traer/i,/le encargo/i,/quiero (?:un )?pedido/i,/necesito (?:producto|refresco|agua)/i,/le pido/i]},
 {tema:"entrega_no_realizada",nombre:"Pedido no entregado",patrones:[/no lleg[oó]/i,/no me entreg/i,/no vino/i,/no pas[oó]/i,/pedido.*pendiente/i,/no recib[ií]/i]},
 {tema:"pedido_incompleto",nombre:"Pedido incompleto",patrones:[/falt[oó].*(producto|pedido|caja)/i,/pedido incompleto/i,/me faltan/i,/no ven[ií]a/i,/no incluyeron/i]},
+{tema:"pedido",nombre:"Nuevo pedido",patrones:[/\bpedido\b/i,/me puede traer/i,/le encargo/i,/quiero (?:un )?pedido/i,/necesito (?:producto|refresco|agua)/i,/le pido/i]},
 {tema:"facturacion",nombre:"Facturación",patrones:[/factur/i,/cfdi/i,/constancia fiscal/i,/datos fiscales/i,/rfc\b/i]},
 {tema:"pago",nombre:"Formas de pago",patrones:[/forma[s]? de pago/i,/c[oó]mo puedo pagar/i,/aceptan tarjeta/i,/transferencia/i,/pago en efectivo/i]},
 {tema:"cobro",nombre:"Cobro o importe",patrones:[/cobr(ar|aron|o).*(m[aá]s|doble|incorrecto)/i,/cobro/i,/me cobraron/i,/importe/i]},
