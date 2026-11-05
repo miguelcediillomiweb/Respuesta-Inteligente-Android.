@@ -28,7 +28,14 @@
     var match=contacts.find(function(c){return clean(c.nombre)===key || clean(c.numero)===key;});
     if(match && (match.grupo==="familiar" || match.grupo==="bloqueado")){show(sender,message,"",match.grupo==="familiar"?"Familiar: descartado":"Bloqueado: descartado");return;}
     if(window.RIPausa && RIPausa.estaPausado()){show(sender,message,"","Aplicación pausada");return;}
-    if(match && match.grupo==="jefe"){show(sender,message,"Recibido, estoy atento a lo que me indiques. 👌","Jefe · solo acuse");return;}
+    if(match && match.grupo==="jefe"){
+      var today=new Date().toLocaleDateString("en-CA");
+      var ackKey="ri_jefe_ack_"+clean(match.numero)+"_"+today;
+      if(localStorage.getItem(ackKey)){show(sender,message,"","Jefe · acuse diario ya utilizado; atender manualmente");return;}
+      localStorage.setItem(ackKey,"1");
+      show(sender,message,"Recibido, estoy atento a lo que me indiques. 👌","Jefe · solo acuse");
+      return;
+    }
     var ctx=sessions[sender] || RIConversacion.nueva();
     var result=RIConversacion.responder(message,ctx);sessions[sender]=result.contexto;
     show(sender,message,result.texto,match?"Cliente":"Número nuevo · posible cliente");
