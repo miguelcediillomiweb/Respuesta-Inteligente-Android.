@@ -1,0 +1,1 @@
+window.RIPausa={alternar(){const c=RIStore.leer();c.pausado=!c.pausado;RIStore.guardar(c);return c.pausado},estaPausado(){return RIStore.leer().pausado}};
