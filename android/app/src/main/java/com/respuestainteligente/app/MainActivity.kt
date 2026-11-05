@@ -68,7 +68,7 @@ class MainActivity : Activity() {
         val m = android.util.Base64.encodeToString(body.toByteArray(), android.util.Base64.NO_WRAP)
         page.post {
             page.evaluateJavascript(
-                "window.RIAndroid && window.RIAndroid.onIncomingNotification(atob('$s'),atob('$m'));",
+                "window.RIAndroid && window.RIAndroid.onIncomingNotification(new TextDecoder().decode(Uint8Array.from(atob('$s'), c => c.charCodeAt(0))),new TextDecoder().decode(Uint8Array.from(atob('$m'), c => c.charCodeAt(0))));",
                 null
             )
         }
